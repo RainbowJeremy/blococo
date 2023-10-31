@@ -1,0 +1,329 @@
+body {
+   font-family: Roboto, Helvetica, sans-serif;
+    margin: 0;
+    height: 1000px;
+    width: 100%;
+    -webkit-touch-callout: none; /* cannot highlight */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+ul{
+    list-style-type: none;
+    padding:0;
+    margin: 0;
+}
+
+
+.draggable {
+    width: 120px;
+    min-height: 6.5em;
+    margin: 1rem 0 0 1rem;
+    color: white;
+    border-radius: 0.75em;
+    padding: 0;
+    touch-action: none;
+    user-select: none;
+    transform: translate(0px, 0px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 30px repeat(2, 50px);
+    z-index: 2;
+    background-color: #3F3E3E;
+    opacity: 95%;
+    box-shadow: 2px 2px 10px 2px #000000;
+ 
+}
+
+.rococo * .draggable{
+    background-image: url("rococo/rococosuitsquare-removebg-preview.png") !important;
+    background-size: 120px !important;    
+    object-fit: fill !important;
+}
+
+.draggable svg{
+    fill: #24B46D;
+}
+
+#drag-1{
+    display:none;
+}
+
+.io-block.draggable{
+    width: 3rem;
+    height: 3rem;
+    background-color: #00000000;
+    box-shadow: none;
+
+
+}
+.io-block.draggable#outputblock{
+    margin-left: 50vw;
+}
+
+.io-block.draggable#inputblock{
+    margin-left: 7vw;
+}
+
+.block-heading{
+    color: white;
+
+    background-color: #24B46D;
+    border-radius: 7px 7px 0px 0px;
+    grid-column: 1/ span 3;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block-heading span{
+    font-size: 0.7rem;
+    padding: 3px 5px;
+    margin: 1px;
+}
+
+.draggable svg:hover {
+    cursor: pointer;
+}
+
+.input-side{
+    grid-column: 1;
+    grid-row: 2 / span 2;
+
+}
+.input-side svg{
+    position: relative;
+    left: -0.45em;
+
+}
+
+.output-side{
+    grid-column: 3;
+    grid-row: 2 / span 2;
+    display: flex;
+    justify-content: end;
+}
+
+.icon-port{
+}
+
+.output-side svg{
+    position: relative;
+    right:-0.45em;
+
+}
+
+.canvas-container {
+    position: absolute;
+    z-index: 1;
+    margin: 0;
+    color: rgba(255, 255, 255, 0);
+    padding: 0 4px 0 1px;
+    touch-action: none;
+    user-select: none;
+    transform: translate(0px, 0px);
+    
+}
+
+.canvas-container:hover{
+    background-image: url('./images/x.svg');
+    background-size:  25px;
+
+    background-repeat: no-repeat;
+    opacity: 100%;
+    object-fit: contain;
+    background-position: center; 
+    cursor: pointer;
+}
+
+.navbar{
+    position: sticky;
+    top:0px;
+    background-color: black;
+    height: 40px;
+    width: 100%;
+    z-index :10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.navbar > div{
+    cursor: pointer;
+}
+.rococo * .navbar{
+    background-image: url("rococo/damask-seamless-pattern-element-vector-floral-damask-ornament-vintage-illustration_1217-6354.jpg") !important;
+    background-repeat: repeat !important;
+    object-fit: cover !important;
+}
+
+.navbar svg{
+    fill:#ffffff;
+}
+
+.publish-btn{
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    color: white;
+    border :1px white solid;
+    background-color: rgb(0, 170, 255);
+    padding: 5px 7px;
+    margin: 3px;
+}
+main{
+    margin-top: 0px;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 16% 4fr 1fr;
+    grid-template-rows: 100%;
+    
+}
+.drawing-board{
+    height: 100vh;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    background-image:url("backgroundtiles/crosstile.png");
+
+    background-attachment: scroll,local;
+    background-repeat: repeat;
+    background-color: #FFFFEE;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+}
+.rococo * .drawing-board{/* '*' means ancestor has rococo and descendant has drawing board */
+
+    background-image:url("rococo/room.jpeg") !important;
+    background-size: auto 100vh !important;
+    background-position: center !important; 
+}
+.bar{
+    height: 100%;
+    width: 100%;
+    z-index :5;
+    background-color: #FAF9F6;
+
+/**/
+}
+.rococo * .bar{
+    background-image: url("rococo/rococobg.jpeg") !important;
+
+}
+.bar h3{
+    margin-left: 10px;
+}
+
+.bar h4{
+    margin-left: 10px;
+}
+.bar li{
+    margin: 10px;
+    margin-top: 4px;
+    padding: 7px;
+}
+.bar svg{
+    fill:rgb(0, 170, 255);
+}
+
+.left-bar{
+    left: 0px;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    border-right: gray solid 3px;
+
+}
+.left-bar-border{
+    float:left;
+
+}
+
+.right-bar{
+    right: 0px;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    border-left: gray solid 3px;
+
+
+}
+.right-bar-border{
+    float:right;
+}
+
+.bar-section{
+    padding: 5px;
+    min-height: 50px;
+    border-bottom: 3px gray dashed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.section-head{
+    padding: 6px;
+    margin: 3px;
+    width: 90%;
+    text-align: left;
+}
+
+.block-option{
+    height: 30px;
+    width: 120px;
+    transition: all 0.3s ease-out;
+
+}
+.block-option:hover{
+    cursor: move;
+    cursor: pointer;
+    height: 40px;
+    width: 130px;
+
+}
+
+.llm-style{
+    background-color: #24B46D;
+}
+.stablediff-style{
+    background-color: #7D2A31;
+}
+.speechtotext-style{
+    background-color: #3C3C82;
+}
+
+.io-block{
+    margin: 0px;
+    padding:0px 15px 3px 15px;
+
+}
+.io-block:hover{
+    cursor: pointer;
+}
+
+.copy-code{
+    font-size:0.7rem;
+    background-color:black;
+    border-radius:5px;
+    font-family:'Courier New', Courier, monospace;
+    color:rgb(20, 217, 43); 
+    margin: -10px 3px 2px 3px;
+    padding: 3px; 
+    border: 1px solid #000000;
+}
+
+.popup{
+    position: relative;
+    margin-top: 0;
+    padding: 4px;
+    visibility: hidden;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    transition: 2s;
+    background-color: #000000;
+    color: white;
+    opacity: 60%;
+}
